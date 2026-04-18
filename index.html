@@ -1,0 +1,176 @@
+import React from 'react';
+import { ShoppingBag, Globe, Mail, Youtube, Instagram, MessageSquare, Store, Wind, PenTool, Package, Thermometer, Flame } from 'lucide-react';
+
+const HubLink = ({ href, icon: Icon, title, subtitle, primary = false }) => {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group flex items-center p-4 mb-3.5 rounded-2xl transition-all duration-300 border backdrop-blur-md
+        ${primary 
+          ? 'bg-emerald-900/20 border-emerald-700/30 hover:bg-emerald-800/30 hover:border-emerald-500/50 shadow-[0_8px_30px_rgba(4,120,87,0.1)]' 
+          : 'bg-neutral-900/40 border-neutral-800/60 hover:bg-neutral-800/60 hover:border-neutral-600/50 shadow-sm'
+        } hover:-translate-y-1`}
+    >
+      <div className={`flex items-center justify-center p-3.5 rounded-xl mr-4 transition-colors duration-300
+        ${primary ? 'bg-emerald-800/40 text-emerald-50' : 'bg-neutral-800/50 text-neutral-400 group-hover:text-neutral-200 group-hover:bg-neutral-700/50'}`}>
+        <Icon size={22} strokeWidth={1.5} />
+      </div>
+      <div className="flex-1">
+        <h3 className={`text-base font-medium tracking-wide ${primary ? 'text-white' : 'text-neutral-100'}`}>
+          {title}
+        </h3>
+        {subtitle && (
+          <p className={`text-sm mt-1 font-light ${primary ? 'text-emerald-200/80' : 'text-neutral-400'}`}>
+            {subtitle}
+          </p>
+        )}
+      </div>
+      <div className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={primary ? 'text-emerald-300' : 'text-neutral-400'}>
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </a>
+  );
+};
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-neutral-950 text-neutral-200 font-sans selection:bg-emerald-700/50 relative overflow-hidden">
+      
+      {/* Luxury Ambient Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        {/* Soft emerald glow top left */}
+        <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-emerald-900/10 blur-[120px]"></div>
+        {/* Soft charcoal/slate glow bottom right */}
+        <div className="absolute bottom-[-20%] right-[-20%] w-[80vw] h-[80vw] rounded-full bg-neutral-800/20 blur-[150px]"></div>
+      </div>
+
+      <div className="relative z-10 max-w-md mx-auto px-5 py-14 flex flex-col items-center">
+        
+        {/* Profile / Branding Section */}
+        <div className="mb-12 text-center w-full">
+          <div className="w-28 h-28 mx-auto mb-6 bg-neutral-900/80 rounded-2xl flex items-center justify-center border border-neutral-800/80 shadow-2xl backdrop-blur-sm relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/10 to-transparent opacity-50"></div>
+            <Store className="text-emerald-400 relative z-10 transition-transform duration-500 group-hover:scale-110" size={40} strokeWidth={1} />
+          </div>
+          <h1 className="text-3xl font-semibold text-white tracking-tight mb-3">
+            Pixie's Pantry
+          </h1>
+          <p className="text-neutral-400 text-sm max-w-[280px] mx-auto leading-relaxed font-light">
+            Tested gear. Transparent reviews. No BS. Everything you need, straight from the workbench.
+          </p>
+        </div>
+
+        {/* Links Section */}
+        <div className="w-full space-y-4">
+          
+          <div className="mb-10">
+            <h2 className="text-[10px] font-semibold text-neutral-500 uppercase tracking-[0.2em] mb-4 px-2 ml-1">
+              Featured Gear
+            </h2>
+            <HubLink 
+              href="https://shop.pixiespantryshop.com" 
+              icon={ShoppingBag} 
+              title="Shop the Pantry" 
+              subtitle="Our primary storefront"
+              primary={true}
+            />
+            <HubLink 
+              href="https://tokerpoker.pixiespantryshop.com" 
+              icon={Flame} 
+              title="Shop Toker Pokers" 
+              subtitle="The ultimate lighter sleeve"
+              primary={true}
+            />
+          </div>
+
+          <div className="mb-10">
+            <h2 className="text-[10px] font-semibold text-neutral-500 uppercase tracking-[0.2em] mb-4 px-2 ml-1">
+              The Community
+            </h2>
+            <HubLink 
+              href="https://www.instagram.com/pixiespantryshop/" 
+              icon={Instagram} 
+              title="Instagram" 
+              subtitle="Behind the scenes & updates"
+              primary={true}
+            />
+            <HubLink 
+              href="https://discord.gg/PKdv2HwTxt" 
+              icon={MessageSquare} 
+              title="Discord Server" 
+              subtitle="Chat directly with us"
+              primary={true}
+            />
+            <HubLink 
+              href="https://pixies-pantry.com" 
+              icon={Globe} 
+              title="Brand Website" 
+              subtitle="Our official portal"
+            />
+            <HubLink 
+              href="https://www.youtube.com/channel/UCpQhd79nWMsFnwZgI_Okeuw" 
+              icon={Youtube} 
+              title="YouTube" 
+              subtitle="In-depth guides and teardowns"
+            />
+          </div>
+
+          <div className="mb-10">
+            <h2 className="text-[10px] font-semibold text-neutral-500 uppercase tracking-[0.2em] mb-4 px-2 ml-1">
+              Partner Brands
+            </h2>
+            <HubLink 
+              href="https://airvape.pixiespantryshop.com" 
+              icon={Wind} 
+              title="AirVape" 
+              subtitle="Premium vaporizers"
+            />
+            <HubLink 
+              href="https://thekindpen.pixiespantryshop.com" 
+              icon={PenTool} 
+              title="The Kind Pen" 
+              subtitle="Hardware & accessories"
+            />
+            <HubLink 
+              href="https://synergyimports.pixiespantryshop.com" 
+              icon={Package} 
+              title="Synergy Imports" 
+              subtitle="Quality imported tech"
+            />
+            <HubLink 
+              href="https://thermodyne.pixiespantryshop.com" 
+              icon={Thermometer} 
+              title="Thermodyne" 
+              subtitle="Precision temperature control"
+            />
+          </div>
+
+          <div className="mb-10">
+            <h2 className="text-[10px] font-semibold text-neutral-500 uppercase tracking-[0.2em] mb-4 px-2 ml-1">
+              Connect
+            </h2>
+            <HubLink 
+              href="mailto:admin@pixies-pantry.com" 
+              icon={Mail} 
+              title="Direct Email" 
+              subtitle="admin@pixies-pantry.com"
+            />
+          </div>
+
+        </div>
+
+        {/* Footer */}
+        <footer className="mt-8 text-center pb-8 border-t border-neutral-800/30 w-full pt-8">
+          <p className="text-[11px] uppercase tracking-widest text-neutral-600 font-medium">
+            © {new Date().getFullYear()} Pixie's Pantry
+          </p>
+        </footer>
+
+      </div>
+    </div>
+  );
+}
